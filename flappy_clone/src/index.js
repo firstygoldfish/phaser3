@@ -17,8 +17,8 @@ const config = {
 }
 
 function preload() {
-    this.load.image('tardis', 'assets/tardis.jpg');
-    this.load.image('dalek', 'assets/dalek.png');
+    this.load.image('background', 'assets/sky.png');
+    this.load.image('bird', 'assets/bird.png');
 }
 
 let bird = null;
@@ -28,9 +28,8 @@ function create() {
     //this.add.image(config.width / 2, config.height / 2, 'tardis'); //(400, 300)
     // Origin 0.5,0.5 default
     //this.add.image(config.width / 2, config.height / 2, 'tardis').setOrigin(0.5,0.5); //(400, 300)
-    this.add.image(0, 0, 'tardis').setOrigin(0,0);
-    bird = this.physics.add.sprite(config.width/2,50, 'dalek').setOrigin(0.5,0.5);
-    bird.setScale(0.5, 0.25);
+    this.add.image(0, 0, 'background').setOrigin(0,0);
+    bird = this.physics.add.sprite(config.width/2,50, 'bird').setOrigin(0.5,0.5);
     bird.body.gravity.y = 100; //150px/sec
     //debugger;
 }
