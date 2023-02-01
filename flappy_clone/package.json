@@ -1,16 +1,16 @@
 {
-  "name": "phaser-webpack-boilerplate",
+  "name": "flappy-clone",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack-cli --config webpack.prod.js",
-    "dev": "webpack-cli serve --config webpack.common.js",
-    "dev-fb": "webpack-cli serve --config webpack.fb.js"
+    "dev": "webpack-cli serve --host 0.0.0.0 --config webpack.common.js",
+    "dev-fb": "webpack-cli serve --host 0.0.0.0 --config webpack.fb.js"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "phaser": "^3.24.1",
     "webpack-merge": "^5.1.4"
