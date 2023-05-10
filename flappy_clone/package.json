@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack-cli --config webpack.prod.js",
-    "dev": "webpack-cli serve --host 0.0.0.0 --config webpack.common.js",
-    "dev-fb": "webpack-cli serve --host 0.0.0.0 --config webpack.fb.js"
+    "dev": "webpack-cli serve --host 0.0.0.0 --port 8000 --config webpack.common.js",
+    "dev-fb": "webpack-cli serve --host 0.0.0.0 --port 8000 --config webpack.fb.js"
   },
   "author": "",
   "license": "MIT",
