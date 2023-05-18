@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-
 const config = {
 	// WebGL (Web Graphics Library) JS API for rendering 2d and 3d graphics
 	type: Phaser.AUTO,
@@ -7,7 +6,10 @@ const config = {
 	height: 600,
 	physics: {
 		// Arcade physics plugin, manages physics simulation (Arcade simple physics)
-		default: 'arcade'
+		default: 'arcade',
+		arcade: {
+			debug: true
+		}
 	},
 	scene: {
 		preload: preload,
@@ -17,25 +19,30 @@ const config = {
 }
 
 function preload() {
+  // Loading assets
+  // 'this' context = scene
 	this.load.image('background', 'assets/sky.png');
 	this.load.image('bird', 'assets/bird.png');
 }
 
 let bird = null;
+let totalDelta = null;
+let velocity = 200;
 
 function create() {
+  // Initialising objects
 	// x, y, key of image
-	//this.add.image(config.width / 2, config.height / 2, 'tardis'); //(400, 300)
 	// Origin 0.5,0.5 default
-	//this.add.image(config.width / 2, config.height / 2, 'tardis').setOrigin(0.5,0.5); //(400, 300)
 	this.add.image(0, 0, 'background').setOrigin(0, 0);
-	bird = this.physics.add.sprite(config.width / 2, 50, 'bird').setOrigin(0.5, 0.5);
-	bird.body.gravity.y = 100; //150px/sec
+	bird = this.physics.add.sprite(10, config.height / 2, 'bird').setOrigin(0.5, 0.5);  // Added to physics
+	//bird.body.gravity.y = 100; //100px/sec
+	bird.body.velocity.x = velocity;
 	//debugger;
 }
 
 function update(time, delta) {
-	//console.log(delta);
+	if (bird.x >= config.width - (bird.width / 2)) { bird.body.velocity.x = -velocity; }
+	else if (bird.x <= (bird.width / 2)) { bird.body.velocity.x = velocity; }
 }
 
 new Phaser.Game(config);
